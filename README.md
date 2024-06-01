@@ -10,21 +10,16 @@ document.addEventListener("DOMContentLoaded", () => {
   const getweather = (event) => {
     const APIurl = `https://api.openweathermap.org/data/2.5/weather?q=${usercity}&appid=${APIkey}&units=metric&lang=ja`;
     event.preventDefault();
-
-    // const suburl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${APIkey}&units=metric&lang=ja`;
-
     fetch(APIurl)
       .then((res) => res.json())
       .then((user) => {
         console.log(user);
         const location = user.name;
         let errormessage = description.innerHTML;
-
         if (location === usercity ?? errormessage) {
           const temperature = user.main.temp;
           const weather = user.weather[0].main;
           const icon = user.weather[0].icon;
-
           document.getElementById("location").innerHTML = `場所:${location}`;
           document.getElementById(
             "temperature"
