@@ -4,7 +4,7 @@ document.addEventListener("DOMContentLoaded", () => {
   const form = document.getElementById("form");
   const submit = document.getElementById("submit");
   const description = document.getElementById("description");
-  // 読み込み時には初期値を取得するため、ユーザーの値は取れない。
+  // ↓　読み込み時には初期値を取得するため、ユーザーの値は取れない。
   // getweather関数内に書くか、改めてgetweatherに変数を宣言する。
   // const city = document.getElementById("usercity").value;
   
@@ -25,39 +25,43 @@ document.addEventListener("DOMContentLoaded", () => {
         const temperature = data.main.temp;
         const weather = data.weather[0].main;
         const icon = data.weather[0].icon;
-        const CitynameMaps = {
-          "北海道":"Hokkaido",
-          "青森県":"Aomori-ken",
-          "岩手県":"Iwate",
-          "宮城県":"Miyagi-ken",
-          "秋田県":"Akita",
-          "山形県":"Yamagata-ken",
-          "福島県":"Fukushima-ken",
-          "茨城県":"Ibaraki",
-          "栃木県":"Tochigi",
-          "群馬県":"Gunma-ken",
-          "埼玉県":"Saitama-ken",
-          "千葉県":"Chiba-ken",
-          "Tokyo":"東京都",
-          "神奈川県":"Kanagawa",
-          "山梨県":"Yamanashi",
-          "長野県":"Nagano-ken",
-          "新潟県":"Hokkaido",
-          "富山県":"Hokkaido",
-          "石川県":"Hokkaido",
-          "福井県":"Hokkaido",
-          "岐阜県":"Hokkaido",
-          "静岡県":"Hokkaido",
-          "愛知県":"Hokkaido",
-          "三重県":"Hokkaido",
-          "愛知県":"Hokkaido",
-          "愛知県":"Hokkaido",
-          "愛知県":"Hokkaido",
-          "愛知県":"Hokkaido",
-          "愛知県":"Hokkaido",
-          "愛知県":"Hokkaido",
-        }
-        if (location === CitynameMaps[usercity]) {
+        // const CitynameMaps = {
+        //   "Hokkaido":"北海道",
+        //   "Aomori-ken":"青森県",
+        //   "Iwate":"岩手県",
+        //   "Miyagi-ken":"宮城県",
+        //   "Akita":"秋田県",
+        //   "Yamagata-ken":"山形県",
+        //   "Fukushima-ken":"福島県",
+        //   "Ibaraki":"茨城県",
+        //   "Tochigi":"栃木県",
+        //   "Gunma-ken":"群馬県",
+        //   "Saitama-ken":"埼玉県",
+        //   "Chiba-ken":"千葉県",
+        //   "Tokyo":"東京都",
+        //   "Kanagawa":"神奈川県",
+        //   "Yamanashi":"山梨県",
+        //   "Nagano-ken":"長野県",
+        //   "Niigata-ken":"新潟県",
+        //   "Toyama-ken":"富山県",
+        //   "Ishikawa-ken":"石川県",
+        //   "Fukui":"福井県",
+        //   "Gifu":"岐阜県",
+        //   "Shizuoka":"静岡県",
+        //   "Aichi-ken":"愛知県",
+        //   "Mie-ken":"三重県",
+        //   "滋賀県":"滋賀県",
+        //   "Mie-ken":"京都府 ",
+        //   "愛知県":"Hokkaido",
+        //   "愛知県":"Hokkaido",
+        //   "愛知県":"Hokkaido",
+        //   "愛知県":"Hokkaido",
+        // }
+
+        // const Japanese = CitynameMaps[location];
+        // console.log(Japanese);
+
+        if (usercity === location) {
           document.getElementById("location").innerHTML = `場所:${location}`;
           document.getElementById(
             "temperature"
@@ -73,7 +77,7 @@ document.addEventListener("DOMContentLoaded", () => {
   };
 
   const displayweather = () => {
-    usercity = "";
+    usercity.value = "";
   };
 
   form.addEventListener("submit", getweather);
