@@ -3,7 +3,7 @@ document.addEventListener("DOMContentLoaded", () => {
   const submit = document.getElementById("submit");
   const description = document.getElementById("description");
 
-  const usercity = document.getElementById("usercity").value;
+  const usercity = document.getElementById("usercity").classList.value;
   const APIkey = "9dd08f431a1b5225b4a55db0337c4610";
   const city = "osaka";
 
@@ -18,9 +18,7 @@ document.addEventListener("DOMContentLoaded", () => {
       .then((user) => {
         console.log(user);
         const location = user.name;
-        let errormessage = description.innerHTML;
-
-        if (location === usercity ?? errormessage) {
+        if (location === usercity) {
           const temperature = user.main.temp;
           const weather = user.weather[0].main;
           const icon = user.weather[0].icon;
