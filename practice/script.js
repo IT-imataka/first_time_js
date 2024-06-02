@@ -2,14 +2,15 @@ document.addEventListener("DOMContentLoaded", () => {
   const form = document.getElementById("form");
   const submit = document.getElementById("submit");
   const description = document.getElementById("description");
+  const city = document.getElementById("usercity");
 
-  const usercity = document.getElementById("usercity").classList.value;
-  const APIkey = "9dd08f431a1b5225b4a55db0337c4610";
-  const city = "osaka";
+  // const city = "osaka";
 
   const getweather = (event) => {
-    const APIurl = `https://api.openweathermap.org/data/2.5/weather?q=${usercity}&appid=${APIkey}&units=metric&lang=ja`;
     event.preventDefault();
+    const usercity = city.value;
+    const APIkey = "9dd08f431a1b5225b4a55db0337c4610";
+    const APIurl = `https://api.openweathermap.org/data/2.5/weather?q=${usercity}&appid=${APIkey}&units=metric&lang=ja`;
 
     // const suburl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${APIkey}&units=metric&lang=ja`;
 
@@ -38,7 +39,7 @@ document.addEventListener("DOMContentLoaded", () => {
   };
 
   const displayweather = () => {
-    usercity.value = "";
+    usercity = "";
   };
 
   form.addEventListener("submit", getweather);
