@@ -1,4 +1,4 @@
-require("dotenv").config();
+// require("dotenv").config();
 
 document.addEventListener("DOMContentLoaded", () => {
   const form = document.getElementById("form");
@@ -8,14 +8,12 @@ document.addEventListener("DOMContentLoaded", () => {
   // getweather関数内に書くか、改めてgetweatherに変数を宣言する。
   // const city = document.getElementById("usercity").value;
   
-  // const city = "osaka";
-  
   const getweather = (event) => {
     event.preventDefault();
     // const usercity = city.value;
     const usercity = document.getElementById("usercity").value;
-    const APIkey = "process.env.WEATHER_API_KEY";
-    const APIurl = `https://api.openweathermap.org/data/2.5/weather?q=${usercity}&appid=${APIkey}&units=metric&lang=ja`;
+    const vvvv = "process.env.WEATHER";
+    const APIurl = `https://api.openweathermap.org/data/2.5/weather?q=${usercity}&appid=${vvvv}&units=metric&lang=ja`;
 
     fetch(APIurl)
       .then((res) => res.json())
@@ -25,6 +23,29 @@ document.addEventListener("DOMContentLoaded", () => {
         const temperature = data.main.temp;
         const weather = data.weather[0].main;
         const icon = data.weather[0].icon;
+
+        if (usercity === location) {
+          document.getElementById("location").innerHTML = `場所:${location}`;
+          document.getElementById(
+            "temperature"
+          ).innerHTML = `気温:${temperature}`;
+          document.getElementById("weather").innerHTML = `天候:${weather}`;
+          document.getElementById("icon").innerHTML = `${icon}`;
+        } else {
+          window.alert("そんな地域は存在しないよ！");
+        }
+      })
+      .catch((error) => console.error("Error", error));
+    displayweather();
+  };
+
+  const displayweather = () => {
+    usercity.value = "";
+  };
+
+  form.addEventListener("submit", getweather);
+});
+
         // const CitynameMaps = {
         //   "Hokkaido":"北海道",
         //   "Aomori-ken":"青森県",
@@ -60,28 +81,6 @@ document.addEventListener("DOMContentLoaded", () => {
 
         // const Japanese = CitynameMaps[location];
         // console.log(Japanese);
-
-        if (usercity === location) {
-          document.getElementById("location").innerHTML = `場所:${location}`;
-          document.getElementById(
-            "temperature"
-          ).innerHTML = `気温:${temperature}`;
-          document.getElementById("weather").innerHTML = `天候:${weather}`;
-          document.getElementById("icon").innerHTML = `${icon}`;
-        } else {
-          window.alert("そんな地域は存在しないよ！");
-        }
-      })
-      .catch((error) => console.error("Error", error));
-    displayweather();
-  };
-
-  const displayweather = () => {
-    usercity.value = "";
-  };
-
-  form.addEventListener("submit", getweather);
-});
 
 // fetch(APIurl)
 // .then(function(res){
