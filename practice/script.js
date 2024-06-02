@@ -2,17 +2,18 @@ document.addEventListener("DOMContentLoaded", () => {
   const form = document.getElementById("form");
   const submit = document.getElementById("submit");
   const description = document.getElementById("description");
-  const city = document.getElementById("usercity");
-
+  // 読み込み時には初期値を取得するため、ユーザーの値は取れない。
+  // getweather関数内に書くか、改めてgetweatherに変数を宣言する。
+  // const city = document.getElementById("usercity").value;
+  
   // const city = "osaka";
-
+  
   const getweather = (event) => {
     event.preventDefault();
-    const usercity = city.value;
+    // const usercity = city.value;
+    const usercity = document.getElementById("usercity").value;
     const APIkey = "9dd08f431a1b5225b4a55db0337c4610";
     const APIurl = `https://api.openweathermap.org/data/2.5/weather?q=${usercity}&appid=${APIkey}&units=metric&lang=ja`;
-
-    // const suburl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${APIkey}&units=metric&lang=ja`;
 
     fetch(APIurl)
       .then((res) => res.json())
