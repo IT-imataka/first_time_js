@@ -32,7 +32,7 @@ document.addEventListener("DOMContentLoaded", () => {
           document.getElementById("weather").innerHTML = `天候:${weather}`;
           document.getElementById("icon").innerHTML = `${icon}`;
         } else {
-          errormessage = "そんな地域は存在しないよ！";
+          window.alert("そんな地域は存在しないよ！");
         }
       })
       .catch((error) => console.error("Error", error));
