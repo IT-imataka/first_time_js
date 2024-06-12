@@ -1,0 +1,51 @@
+@charset "utf-8";
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+ul {
+  list-style: none;
+}
+:root {
+  --main-color: blue;
+  --base-color: rgba(0, 0, 255, 0.395);
+}
+.wrapper {
+  background-color:#ddd ;
+  width: 800px;
+  height: 100%;
+  margin: 100px auto 0;
+  padding-bottom: 20px;
+  text-align: center;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+}
+.header {
+  width: 40%;
+  margin: 0 auto 40px;
+  padding-top: 60px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.header button {
+  background: none;
+  border: 1px solid var(--main-color);
+  padding: 10px ;
+  cursor: pointer;
+}
+.header button:hover {
+  color: #fff;
+  background-color: var(--base-color);
+}
+#calender {
+  border-collapse: collapse;
+  width: 40%;
+  margin: 0 auto 40px;
+}
+#calender th,
+#calender td {
+  padding: 15px;
+  text-align: center;
+}
