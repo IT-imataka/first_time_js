@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="container">
+    <div class="header">
+      <button id="prebtn">Previous<p></p>前月へ</button>
+      <h2 id="monthyear"></h2>
+      <button id="nextbtn">Next<p></p>翌月へ</button>
+    </div>
+    <table id="calendar" frame="void" style="border-collapse: collapse;">
+      <thead>
+        <tr>
+          <td>Sun 日</td>
+          <td>Mon 月</td>
+          <td>Tus 火</td>
+          <td>Wed 水</td>
+          <td>Thu 木</td>
+          <td>Fri 金</td>
+          <td>Sad 土</td>
+        </tr>
+      </thead>
+      <tbody id="Date"></tbody>
+    </table>
+  </div>
+  <script src="./script.js"></script>
+</body>
+</html>

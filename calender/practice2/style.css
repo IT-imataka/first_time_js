@@ -1,0 +1,63 @@
+@charset "utf-8";
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  --main-color: green;
+  --base-color: rgba(21, 194, 21, 0.634);
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+.container {
+  margin: 100px auto 0;
+  width: 1000px;
+  padding: 30px;
+  background: #eee;
+  box-shadow: 0 0 4px rgba(0, 0, 0, 0.4);
+}
+.header {
+  color: var(--base-color);
+  width: 50%;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.header button {
+  background: none;
+  border: 1px solid var(--main-color);
+  padding: 10px 15px;
+  cursor: pointer;
+}
+.header button:hover {
+  background: var(--main-color);
+  color: #fff;
+}
+
+#calendar {
+  text-align: center;
+  width: 50%;
+  margin: 40px auto 0;
+}
+#calendar tr,
+#calendar td {
+  padding: 15px;
+}
+#calendar tr td:last-child {
+  color: blue;
+}
+#calendar tr td:first-child {
+  color: red;
+}
+#Date td:hover,
+#Date tr:first-child td:last-child:hover {
+  background: var(--main-color);
+  color: #fff;
+}
+#Date tr:first-child td {
+  background: none;
+  /* color: initial; */
+}
